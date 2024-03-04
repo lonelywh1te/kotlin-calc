@@ -4,7 +4,7 @@ import ru.lonelywh1te.kotlin_calc.calculator.CalculatorImpl
 import ru.lonelywh1te.kotlin_calc.calculator.ICalculator
 class ViewCalculatorImpl: IViewCalculator {
     enum class Operation {
-        NONE, SUM, SUBTRACTION
+        NONE, SUM, SUBTRACTION, MULTIPLICATION
     }
 
     enum class State {
@@ -61,6 +61,10 @@ class ViewCalculatorImpl: IViewCalculator {
                 resultNumber = calculator.subtraction(resultNumber.toDouble(), displayNumber.toDouble()).toString()
             }
 
+            Operation.MULTIPLICATION -> {
+                resultNumber = calculator.multiplication(resultNumber.toDouble(), displayNumber.toDouble()).toString()
+            }
+
             Operation.NONE -> {}
         }
     }
@@ -94,7 +98,15 @@ class ViewCalculatorImpl: IViewCalculator {
     }
 
     override fun multiplicationBtnPressed() {
-        TODO("Not yet implemented")
+        if (currentState != State.WAITING && currentOperation != Operation.NONE) {
+            performOperation()
+            displayNumber = resultNumber
+        } else {
+            resultNumber = displayNumber
+        }
+
+        currentOperation = Operation.MULTIPLICATION
+        currentState = State.WAITING
     }
 
     override fun percentBtnPressed() {

@@ -14,7 +14,7 @@ class CalculatorImpl: ICalculator {
     }
 
     override fun multiplication(a: Double, b: Double): Double {
-        TODO("Not yet implemented")
+        return a * b
     }
 
     override fun percent(number: Double): Double {
