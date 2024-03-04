@@ -1,5 +1,7 @@
 package ru.lonelywh1te.kotlin_calc.calculator
 
+import java.lang.Exception
+
 class CalculatorImpl: ICalculator {
     override fun sum(a: Double, b: Double): Double {
         return a + b
@@ -10,7 +12,7 @@ class CalculatorImpl: ICalculator {
     }
 
     override fun division(a: Double, b: Double): Double {
-        TODO("Not yet implemented")
+        return a / b
     }
 
     override fun multiplication(a: Double, b: Double): Double {

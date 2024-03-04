@@ -4,7 +4,7 @@ import ru.lonelywh1te.kotlin_calc.calculator.CalculatorImpl
 import ru.lonelywh1te.kotlin_calc.calculator.ICalculator
 class ViewCalculatorImpl: IViewCalculator {
     enum class Operation {
-        NONE, SUM, SUBTRACTION, MULTIPLICATION
+        NONE, SUM, SUBTRACTION, MULTIPLICATION, DIVISION
     }
 
     enum class State {
@@ -23,7 +23,7 @@ class ViewCalculatorImpl: IViewCalculator {
 
     override fun addDigit(digit: CharSequence) {
         if (currentState == State.RESULT) allClear()
-        if (currentState == State.WAITING) displayNumber = ""
+        if (currentState == State.WAITING || displayNumber == "0") displayNumber = ""
 
         if (displayNumber.length < 12) {
             displayNumber += digit
@@ -65,6 +65,10 @@ class ViewCalculatorImpl: IViewCalculator {
                 resultNumber = calculator.multiplication(resultNumber.toDouble(), displayNumber.toDouble()).toString()
             }
 
+            Operation.DIVISION -> {
+                resultNumber = calculator.division(resultNumber.toDouble(), displayNumber.toDouble()).toString()
+            }
+
             Operation.NONE -> {}
         }
     }
@@ -94,7 +98,15 @@ class ViewCalculatorImpl: IViewCalculator {
     }
 
     override fun divisionBtnPressed() {
-        TODO("Not yet implemented")
+        if (currentState != State.WAITING && currentOperation != Operation.NONE) {
+            performOperation()
+            displayNumber = resultNumber
+        } else {
+            resultNumber = displayNumber
+        }
+
+        currentOperation = Operation.DIVISION
+        currentState = State.WAITING
     }
 
     override fun multiplicationBtnPressed() {
