@@ -32,9 +32,18 @@ class MainActivity : AppCompatActivity() {
                 updateDisplayNumber(viewCalculator)
             }
 
+            btnSubstraction.setOnClickListener {
+                viewCalculator.subtractionBtnPressed()
+
+                resetActionButtons(actionButtons)
+                setActiveActionButton(binding.btnSubstraction)
+                updateDisplayNumber(viewCalculator)
+            }
+
             btnSum.setOnClickListener {
                 viewCalculator.sumBtnPressed()
 
+                resetActionButtons(actionButtons)
                 setActiveActionButton(binding.btnSum)
                 updateDisplayNumber(viewCalculator)
             }

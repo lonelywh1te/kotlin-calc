@@ -4,7 +4,7 @@ import ru.lonelywh1te.kotlin_calc.calculator.CalculatorImpl
 import ru.lonelywh1te.kotlin_calc.calculator.ICalculator
 class ViewCalculatorImpl: IViewCalculator {
     enum class Operation {
-        NONE, SUM
+        NONE, SUM, SUBTRACTION
     }
 
     enum class State {
@@ -52,9 +52,16 @@ class ViewCalculatorImpl: IViewCalculator {
     }
 
     override fun performOperation() {
-        when(currentOperation){
-            Operation.SUM -> resultNumber = calculator.sum(resultNumber.toDouble(), displayNumber.toDouble()).toString()
-            else -> {}
+        when (currentOperation) {
+            Operation.SUM -> {
+                resultNumber = calculator.sum(resultNumber.toDouble(), displayNumber.toDouble()).toString()
+            }
+
+            Operation.SUBTRACTION -> {
+                resultNumber = calculator.subtraction(resultNumber.toDouble(), displayNumber.toDouble()).toString()
+            }
+
+            Operation.NONE -> {}
         }
     }
 
@@ -67,6 +74,18 @@ class ViewCalculatorImpl: IViewCalculator {
         }
 
         currentOperation = Operation.SUM
+        currentState = State.WAITING
+    }
+
+    override fun subtractionBtnPressed() {
+        if (currentState != State.WAITING && currentOperation != Operation.NONE) {
+            performOperation()
+            displayNumber = resultNumber
+        } else {
+            resultNumber = displayNumber
+        }
+
+        currentOperation = Operation.SUBTRACTION
         currentState = State.WAITING
     }
 

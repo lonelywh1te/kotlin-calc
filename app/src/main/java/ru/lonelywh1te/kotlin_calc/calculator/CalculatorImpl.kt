@@ -6,7 +6,7 @@ class CalculatorImpl: ICalculator {
     }
 
     override fun subtraction(a: Double, b: Double): Double {
-        TODO("Not yet implemented")
+        return a - b
     }
 
     override fun division(a: Double, b: Double): Double {

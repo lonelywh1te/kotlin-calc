@@ -7,6 +7,7 @@ interface IViewCalculator {
     fun allClear()
     fun deleteLastDigit()
     fun performOperation()
-    fun sumBtnPressed()
     fun equalBtnPressed()
+    fun sumBtnPressed()
+    fun subtractionBtnPressed()
 }
