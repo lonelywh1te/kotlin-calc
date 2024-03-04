@@ -18,6 +18,6 @@ class CalculatorImpl: ICalculator {
     }
 
     override fun percent(number: Double): Double {
-        TODO("Not yet implemented")
+        return number / 100
     }
 }

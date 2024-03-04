@@ -89,6 +89,19 @@ class ViewCalculatorImpl: IViewCalculator {
         currentState = State.WAITING
     }
 
+    override fun divisionBtnPressed() {
+        TODO("Not yet implemented")
+    }
+
+    override fun multiplicationBtnPressed() {
+        TODO("Not yet implemented")
+    }
+
+    override fun percentBtnPressed() {
+        displayNumber = calculator.percent(displayNumber.toDouble()).toString()
+        currentState = State.ENTERING
+    }
+
     override fun equalBtnPressed() {
         if (currentState != State.WAITING) {
             performOperation()

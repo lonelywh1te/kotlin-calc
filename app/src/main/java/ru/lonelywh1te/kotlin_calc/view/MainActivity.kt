@@ -48,6 +48,11 @@ class MainActivity : AppCompatActivity() {
                 updateDisplayNumber(viewCalculator)
             }
 
+            btnPercent.setOnClickListener {
+                viewCalculator.percentBtnPressed()
+                updateDisplayNumber(viewCalculator)
+            }
+
             btnDelete.setOnClickListener {
                 viewCalculator.deleteLastDigit()
                 updateDisplayNumber(viewCalculator)

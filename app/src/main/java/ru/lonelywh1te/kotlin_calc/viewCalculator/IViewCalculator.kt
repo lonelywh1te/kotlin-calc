@@ -10,4 +10,7 @@ interface IViewCalculator {
     fun equalBtnPressed()
     fun sumBtnPressed()
     fun subtractionBtnPressed()
+    fun divisionBtnPressed()
+    fun multiplicationBtnPressed()
+    fun percentBtnPressed()
 }
