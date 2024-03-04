@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
     <TextView
         android:id="@+id/tvResultNumber"
@@ -40,7 +40,8 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:layout_marginEnd="7.5dp"
-                            android:text="АС"/>
+                            android:text="АС"
+                            android:backgroundTint="@color/defaultColorButton"/>
 
                         <Button
                             android:id="@+id/btnDelete"
@@ -49,7 +50,8 @@
                             android:layout_weight="1"
                             android:layout_marginStart="7.5dp"
                             android:layout_marginEnd="7.5dp"
-                            android:text="del"/>
+                            android:text="del"
+                            android:backgroundTint="@color/defaultColorButton"/>
 
                         <Button
                             android:id="@+id/btnPercent"
@@ -58,7 +60,8 @@
                             android:layout_weight="1"
                             android:layout_marginStart="7.5dp"
                             android:layout_marginEnd="7.5dp"
-                            android:text="%"/>
+                            android:text="%"
+                            android:backgroundTint="@color/defaultColorButton"/>
 
                         <Button
                             android:id="@+id/btnDivision"
@@ -66,7 +69,8 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:layout_marginStart="7.5dp"
-                            android:text="/"/>
+                            android:text="/"
+                            android:backgroundTint="@color/defaultColorButton"/>
 
         </TableRow>
 
@@ -86,7 +90,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_marginEnd="7.5dp"
-                android:text="7"/>
+                android:text="7"
+                android:backgroundTint="@color/defaultColorButton"/>
 
             <Button
                 android:id="@+id/btn8"
@@ -95,7 +100,8 @@
                 android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
                 android:layout_marginEnd="7.5dp"
-                android:text="8"/>
+                android:text="8"
+                android:backgroundTint="@color/defaultColorButton"/>
 
             <Button
                 android:id="@+id/btn9"
@@ -104,7 +110,8 @@
                 android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
                 android:layout_marginEnd="7.5dp"
-                android:text="9"/>
+                android:text="9"
+                android:backgroundTint="@color/defaultColorButton"/>
 
             <Button
                 android:id="@+id/btnMultiplication"
@@ -112,7 +119,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
-                android:text="x"/>
+                android:text="x"
+                android:backgroundTint="@color/defaultColorButton"/>
 
         </TableRow>
 
@@ -132,7 +140,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_marginEnd="7.5dp"
-                android:text="4"/>
+                android:text="4"
+                android:backgroundTint="@color/defaultColorButton"/>
 
             <Button
                 android:id="@+id/btn5"
@@ -141,7 +150,8 @@
                 android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
                 android:layout_marginEnd="7.5dp"
-                android:text="5"/>
+                android:text="5"
+                android:backgroundTint="@color/defaultColorButton"/>
 
             <Button
                 android:id="@+id/btn6"
@@ -150,7 +160,8 @@
                 android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
                 android:layout_marginEnd="7.5dp"
-                android:text="6"/>
+                android:text="6"
+                android:backgroundTint="@color/defaultColorButton"/>
 
             <Button
                 android:id="@+id/btnSubstraction"
@@ -158,7 +169,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
-                android:text="-"/>
+                android:text="-"
+                android:backgroundTint="@color/defaultColorButton"/>
 
         </TableRow>
 
@@ -178,7 +190,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_marginEnd="7.5dp"
-                android:text="1"/>
+                android:text="1"
+                android:backgroundTint="@color/defaultColorButton"/>
 
             <Button
                 android:id="@+id/btn2"
@@ -187,7 +200,8 @@
                 android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
                 android:layout_marginEnd="7.5dp"
-                android:text="2"/>
+                android:text="2"
+                android:backgroundTint="@color/defaultColorButton"/>
 
             <Button
                 android:id="@+id/btn3"
@@ -196,7 +210,8 @@
                 android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
                 android:layout_marginEnd="7.5dp"
-                android:text="3"/>
+                android:text="3"
+                android:backgroundTint="@color/defaultColorButton"/>
 
             <Button
                 android:id="@+id/btnSum"
@@ -204,7 +219,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
-                android:text="+"/>
+                android:text="+"
+                android:backgroundTint="@color/defaultColorButton" />
 
         </TableRow>
 
@@ -224,7 +240,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_marginEnd="7.5dp"
-                android:text="info"/>
+                android:text="info"
+                android:backgroundTint="@color/defaultColorButton"/>
 
             <Button
                 android:id="@+id/btn0"
@@ -233,7 +250,8 @@
                 android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
                 android:layout_marginEnd="7.5dp"
-                android:text="0"/>
+                android:text="0"
+                android:backgroundTint="@color/defaultColorButton"/>
 
             <Button
                 android:id="@+id/btnComma"
@@ -242,7 +260,8 @@
                 android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
                 android:layout_marginEnd="7.5dp"
-                android:text=","/>
+                android:text=","
+                android:backgroundTint="@color/defaultColorButton"/>
 
             <Button
                 android:id="@+id/btnEqual"
@@ -250,7 +269,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
-                android:text="="/>
+                android:text="="
+                android:backgroundTint="@color/defaultColorButton"/>
 
         </TableRow>
     </TableLayout>
