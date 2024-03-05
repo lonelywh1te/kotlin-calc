@@ -1,7 +1,6 @@
 package ru.lonelywh1te.kotlin_calc
 
 import org.junit.Test
-
 import org.junit.Assert.*
 
 /**

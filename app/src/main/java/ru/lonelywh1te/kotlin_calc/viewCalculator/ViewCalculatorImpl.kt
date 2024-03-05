@@ -18,6 +18,10 @@ class ViewCalculatorImpl: IViewCalculator {
     private var currentOperation: Operation = Operation.NONE
 
     override fun getDisplayNumber(): String {
+        if (displayNumber.endsWith(".0") && currentState != State.ENTERING) {
+            displayNumber = displayNumber.dropLast(2)
+        }
+
         return displayNumber
     }
 

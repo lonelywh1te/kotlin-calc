@@ -1,8 +1,11 @@
 package ru.lonelywh1te.kotlin_calc.calculator
 
-import java.lang.Exception
-
+const val DOUBLE_PRECISION = 10
 class CalculatorImpl: ICalculator {
+    override fun fixDouble(number: Double): Double {
+        return "%.${DOUBLE_PRECISION}g".format(number).replace(',', '.').toDouble()
+    }
+
     override fun sum(a: Double, b: Double): Double {
         return a + b
     }
@@ -12,7 +15,7 @@ class CalculatorImpl: ICalculator {
     }
 
     override fun division(a: Double, b: Double): Double {
-        return a / b
+        return fixDouble(a / b)
     }
 
     override fun multiplication(a: Double, b: Double): Double {
@@ -20,6 +23,6 @@ class CalculatorImpl: ICalculator {
     }
 
     override fun percent(number: Double): Double {
-        return number / 100
+        return division(number, 100.0)
     }
 }
