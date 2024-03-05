@@ -166,12 +166,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setActiveActionButton(button: Button) {
-        button.setBackgroundColor(ContextCompat.getColor(this, R.color.activeColorButton))
+        button.background.setTint(ContextCompat.getColor(this, R.color.activeColorButton))
+        button.setTextColor(ContextCompat.getColor(this, R.color.white))
     }
 
     private fun resetActionButtons(buttons: List<Button>) {
         buttons.forEach {
-            it.setBackgroundColor(ContextCompat.getColor(this, R.color.defaultColorButton))
+            it.background.setTint(ContextCompat.getColor(this, R.color.defaultColorButton))
+            it.setTextColor(ContextCompat.getColor(this, R.color.activeColorButton))
         }
     }
 

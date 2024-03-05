@@ -4,23 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".view.MainActivity">
 
     <TextView
         android:id="@+id/tvResultNumber"
+        style="@style/displayTextViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp"
-        android:textSize="64sp"
-        tools:text="1234567890"
+        android:clickable="false"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="123456890" />
 
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="match_parent"
         android:layout_height="450dp"
+        android:background="@drawable/shape_tablelayout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -28,250 +29,259 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
             android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
             android:layout_marginBottom="7.5dp"
+            android:layout_weight="1"
             android:gravity="center">
 
-                        <Button
-                            android:id="@+id/btnAllClear"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:layout_marginEnd="7.5dp"
-                            android:text="АС"
-                            android:backgroundTint="@color/defaultColorButton"/>
+            <Button
+                android:id="@+id/btnAllClear"
+                style="@style/defaultButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="7.5dp"
+                android:layout_weight="1"
+                android:text="АС"
+                android:textColor="@color/activeColorButton" />
 
-                        <Button
-                            android:id="@+id/btnDelete"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:layout_marginStart="7.5dp"
-                            android:layout_marginEnd="7.5dp"
-                            android:text="del"
-                            android:backgroundTint="@color/defaultColorButton"/>
+            <ImageButton
+                android:id="@+id/btnDelete"
+                style="@style/defaultButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="7.5dp"
+                android:layout_marginEnd="7.5dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_delete">
 
-                        <Button
-                            android:id="@+id/btnPercent"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:layout_marginStart="7.5dp"
-                            android:layout_marginEnd="7.5dp"
-                            android:text="%"
-                            android:backgroundTint="@color/defaultColorButton"/>
+            </ImageButton>
 
-                        <Button
-                            android:id="@+id/btnDivision"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:layout_marginStart="7.5dp"
-                            android:text="/"
-                            android:backgroundTint="@color/defaultColorButton"/>
+            <Button
+                android:id="@+id/btnPercent"
+                style="@style/defaultButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="7.5dp"
+                android:layout_marginEnd="7.5dp"
+                android:layout_weight="1"
+                android:text="%"
+                android:textColor="@color/activeColorButton" />
+
+            <Button
+                android:id="@+id/btnDivision"
+                style="@style/defaultButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="7.5dp"
+                android:layout_weight="1"
+                android:text="/"
+                android:textColor="@color/activeColorButton" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
             android:layout_marginTop="7.5dp"
+            android:layout_marginEnd="15dp"
             android:layout_marginBottom="7.5dp"
+            android:layout_weight="1"
             android:gravity="center">
 
             <Button
                 android:id="@+id/btn7"
+                style="@style/defaultButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="7.5dp"
-                android:text="7"
-                android:backgroundTint="@color/defaultColorButton"/>
+                android:layout_weight="1"
+                android:text="7" />
 
             <Button
                 android:id="@+id/btn8"
+                style="@style/defaultButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
                 android:layout_marginEnd="7.5dp"
-                android:text="8"
-                android:backgroundTint="@color/defaultColorButton"/>
+                android:layout_weight="1"
+                android:text="8" />
 
             <Button
                 android:id="@+id/btn9"
+                style="@style/defaultButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
                 android:layout_marginEnd="7.5dp"
-                android:text="9"
-                android:backgroundTint="@color/defaultColorButton"/>
+                android:layout_weight="1"
+                android:text="9" />
 
             <Button
                 android:id="@+id/btnMultiplication"
+                style="@style/defaultButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
+                android:layout_weight="1"
                 android:text="x"
-                android:backgroundTint="@color/defaultColorButton"/>
+                android:textColor="@color/activeColorButton" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
             android:layout_marginTop="7.5dp"
+            android:layout_marginEnd="15dp"
             android:layout_marginBottom="7.5dp"
+            android:layout_weight="1"
             android:gravity="center">
 
             <Button
                 android:id="@+id/btn4"
+                style="@style/defaultButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="7.5dp"
-                android:text="4"
-                android:backgroundTint="@color/defaultColorButton"/>
+                android:layout_weight="1"
+                android:text="4" />
 
             <Button
                 android:id="@+id/btn5"
+                style="@style/defaultButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
                 android:layout_marginEnd="7.5dp"
-                android:text="5"
-                android:backgroundTint="@color/defaultColorButton"/>
+                android:layout_weight="1"
+                android:text="5" />
 
             <Button
                 android:id="@+id/btn6"
+                style="@style/defaultButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
                 android:layout_marginEnd="7.5dp"
-                android:text="6"
-                android:backgroundTint="@color/defaultColorButton"/>
+                android:layout_weight="1"
+                android:text="6" />
 
             <Button
                 android:id="@+id/btnSubstraction"
+                style="@style/defaultButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
+                android:layout_weight="1"
                 android:text="-"
-                android:backgroundTint="@color/defaultColorButton"/>
+                android:textColor="@color/activeColorButton" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
             android:layout_marginTop="7.5dp"
+            android:layout_marginEnd="15dp"
             android:layout_marginBottom="7.5dp"
+            android:layout_weight="1"
             android:gravity="center">
 
             <Button
                 android:id="@+id/btn1"
+                style="@style/defaultButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="7.5dp"
-                android:text="1"
-                android:backgroundTint="@color/defaultColorButton"/>
+                android:layout_weight="1"
+                android:text="1" />
 
             <Button
                 android:id="@+id/btn2"
+                style="@style/defaultButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
                 android:layout_marginEnd="7.5dp"
-                android:text="2"
-                android:backgroundTint="@color/defaultColorButton"/>
+                android:layout_weight="1"
+                android:text="2" />
 
             <Button
                 android:id="@+id/btn3"
+                style="@style/defaultButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
                 android:layout_marginEnd="7.5dp"
-                android:text="3"
-                android:backgroundTint="@color/defaultColorButton"/>
+                android:layout_weight="1"
+                android:text="3" />
 
             <Button
                 android:id="@+id/btnSum"
+                style="@style/defaultButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
+                android:layout_weight="1"
                 android:text="+"
-                android:backgroundTint="@color/defaultColorButton" />
+                android:textColor="@color/activeColorButton" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
             android:layout_marginTop="7.5dp"
+            android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
+            android:layout_weight="1"
             android:gravity="center">
 
-            <Button
+            <ImageButton
                 android:id="@+id/btnInfo"
+                style="@style/defaultButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginEnd="7.5dp"
-                android:text="info"
-                android:backgroundTint="@color/defaultColorButton"/>
+                android:layout_weight="1"
+                android:src="@drawable/ic_info" />
 
             <Button
                 android:id="@+id/btn0"
+                style="@style/defaultButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
                 android:layout_marginEnd="7.5dp"
-                android:text="0"
-                android:backgroundTint="@color/defaultColorButton"/>
+                android:layout_weight="1"
+                android:text="0" />
 
             <Button
                 android:id="@+id/btnComma"
+                style="@style/defaultButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
                 android:layout_marginEnd="7.5dp"
-                android:text=","
-                android:backgroundTint="@color/defaultColorButton"/>
+                android:layout_weight="1"
+                android:text="." />
 
             <Button
                 android:id="@+id/btnEqual"
+                style="@style/defaultButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginStart="7.5dp"
-                android:text="="
-                android:backgroundTint="@color/defaultColorButton"/>
+                android:layout_weight="1"
+                android:backgroundTint="@color/equalColorButton"
+                android:text="=" />
 
         </TableRow>
     </TableLayout>
