@@ -2,6 +2,8 @@ package ru.lonelywh1te.kotlin_calc.viewCalculator
 
 import ru.lonelywh1te.kotlin_calc.calculator.CalculatorImpl
 import ru.lonelywh1te.kotlin_calc.calculator.ICalculator
+
+const val MAX_DIGIT_VALUE = 15
 class ViewCalculatorImpl: IViewCalculator {
     enum class Operation {
         NONE, SUM, SUBTRACTION, MULTIPLICATION, DIVISION
@@ -29,7 +31,7 @@ class ViewCalculatorImpl: IViewCalculator {
         if (currentState == State.RESULT) allClear()
         if (currentState == State.WAITING || displayNumber == "0") displayNumber = ""
 
-        if (displayNumber.length < 12) {
+        if (displayNumber.length < MAX_DIGIT_VALUE) {
             displayNumber += digit
         }
 

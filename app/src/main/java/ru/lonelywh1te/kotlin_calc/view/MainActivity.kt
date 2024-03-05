@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(view)
         setClickEventListeners(viewCalculator)
+        updateDisplayNumber(viewCalculator)
     }
 
     private fun setClickEventListeners(viewCalculator: IViewCalculator){
@@ -158,7 +159,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateDisplayNumber(viewCalculator: IViewCalculator){
-        binding.tvResultNumber.text = viewCalculator.getDisplayNumber()
+        val displayNumber = viewCalculator.getDisplayNumber()
+        correctFontSize(displayNumber)
+
+        binding.tvResultNumber.text = displayNumber
     }
 
     private fun setActiveActionButton(button: Button) {
@@ -168,6 +172,14 @@ class MainActivity : AppCompatActivity() {
     private fun resetActionButtons(buttons: List<Button>) {
         buttons.forEach {
             it.setBackgroundColor(ContextCompat.getColor(this, R.color.defaultColorButton))
+        }
+    }
+
+    private fun correctFontSize(displayNumber: String) {
+        binding.tvResultNumber.textSize = when {
+            (displayNumber.length <= 10) -> 64.0f
+            (displayNumber.length <= 15) -> 44.0f
+            else -> 35.0f
         }
     }
 }
