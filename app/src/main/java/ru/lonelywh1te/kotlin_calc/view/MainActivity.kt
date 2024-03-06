@@ -3,6 +3,7 @@ package ru.lonelywh1te.kotlin_calc.view
 import android.os.Bundle
 import android.view.HapticFeedbackConstants
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import ru.lonelywh1te.kotlin_calc.R
@@ -113,7 +114,7 @@ class MainActivity : AppCompatActivity() {
             btn0.setOnClickListener {
                 btn0.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
 
-                viewCalculator.addDigit(btn0.text)
+                viewCalculator.digitButtonPressed(btn0.text)
 
                 resetActionButtons(actionButtons)
                 updateDisplayNumber(viewCalculator)
@@ -122,7 +123,7 @@ class MainActivity : AppCompatActivity() {
             btn1.setOnClickListener {
                 btn1.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
 
-                viewCalculator.addDigit(btn1.text)
+                viewCalculator.digitButtonPressed(btn1.text)
 
                 resetActionButtons(actionButtons)
                 updateDisplayNumber(viewCalculator)
@@ -131,7 +132,7 @@ class MainActivity : AppCompatActivity() {
             btn2.setOnClickListener {
                 btn2.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
 
-                viewCalculator.addDigit(btn2.text)
+                viewCalculator.digitButtonPressed(btn2.text)
 
                 resetActionButtons(actionButtons)
                 updateDisplayNumber(viewCalculator)
@@ -140,7 +141,7 @@ class MainActivity : AppCompatActivity() {
             btn3.setOnClickListener {
                 btn3.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
 
-                viewCalculator.addDigit(btn3.text)
+                viewCalculator.digitButtonPressed(btn3.text)
 
                 resetActionButtons(actionButtons)
                 updateDisplayNumber(viewCalculator)
@@ -149,7 +150,7 @@ class MainActivity : AppCompatActivity() {
             btn4.setOnClickListener {
                 btn4.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
 
-                viewCalculator.addDigit(btn4.text)
+                viewCalculator.digitButtonPressed(btn4.text)
 
                 resetActionButtons(actionButtons)
                 updateDisplayNumber(viewCalculator)
@@ -158,7 +159,7 @@ class MainActivity : AppCompatActivity() {
             btn5.setOnClickListener {
                 btn5.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
 
-                viewCalculator.addDigit(btn5.text)
+                viewCalculator.digitButtonPressed(btn5.text)
 
                 resetActionButtons(actionButtons)
                 updateDisplayNumber(viewCalculator)
@@ -167,7 +168,7 @@ class MainActivity : AppCompatActivity() {
             btn6.setOnClickListener {
                 btn6.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
 
-                viewCalculator.addDigit(btn6.text)
+                viewCalculator.digitButtonPressed(btn6.text)
 
                 resetActionButtons(actionButtons)
                 updateDisplayNumber(viewCalculator)
@@ -176,7 +177,7 @@ class MainActivity : AppCompatActivity() {
             btn7.setOnClickListener {
                 btn7.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
 
-                viewCalculator.addDigit(btn7.text)
+                viewCalculator.digitButtonPressed(btn7.text)
 
                 resetActionButtons(actionButtons)
                 updateDisplayNumber(viewCalculator)
@@ -185,7 +186,7 @@ class MainActivity : AppCompatActivity() {
             btn8.setOnClickListener {
                 btn8.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
 
-                viewCalculator.addDigit(btn8.text)
+                viewCalculator.digitButtonPressed(btn8.text)
 
                 resetActionButtons(actionButtons)
                 updateDisplayNumber(viewCalculator)
@@ -194,7 +195,7 @@ class MainActivity : AppCompatActivity() {
             btn9.setOnClickListener {
                 btn9.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
 
-                viewCalculator.addDigit(btn9.text)
+                viewCalculator.digitButtonPressed(btn9.text)
 
                 resetActionButtons(actionButtons)
                 updateDisplayNumber(viewCalculator)
@@ -204,6 +205,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateDisplayNumber(viewCalculator: IViewCalculator){
         val displayNumber = viewCalculator.getDisplayNumber()
+
         correctFontSize(displayNumber)
 
         binding.tvResultNumber.text = displayNumber

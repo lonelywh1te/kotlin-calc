@@ -1,7 +1,10 @@
 package ru.lonelywh1te.kotlin_calc.viewCalculator
 
+import android.widget.Toast
 import ru.lonelywh1te.kotlin_calc.calculator.CalculatorImpl
 import ru.lonelywh1te.kotlin_calc.calculator.ICalculator
+import ru.lonelywh1te.kotlin_calc.view.MainActivity
+import java.lang.Error
 
 const val MAX_DIGIT_VALUE = 15
 class ViewCalculatorImpl: IViewCalculator {
@@ -10,7 +13,7 @@ class ViewCalculatorImpl: IViewCalculator {
     }
 
     enum class State {
-        WAITING, ENTERING, RESULT
+        WAITING, ENTERING, RESULT, ERROR
     }
 
     private val calculator: ICalculator = CalculatorImpl()
@@ -27,9 +30,19 @@ class ViewCalculatorImpl: IViewCalculator {
         return displayNumber
     }
 
+    override fun digitButtonPressed(digit: CharSequence) {
+        when(currentState) {
+            State.WAITING -> displayNumber = ""
+            State.ERROR -> return
+            State.RESULT -> allClear()
+            else -> {}
+        }
+
+        addDigit(digit)
+    }
+
     override fun addDigit(digit: CharSequence) {
-        if (currentState == State.RESULT) allClear()
-        if (currentState == State.WAITING || displayNumber == "0") displayNumber = ""
+        if (displayNumber == "0") displayNumber = ""
 
         if (displayNumber.length < MAX_DIGIT_VALUE) {
             displayNumber += digit
@@ -39,7 +52,11 @@ class ViewCalculatorImpl: IViewCalculator {
     }
 
     override fun addComma() {
+        if (currentState == State.ERROR) return
+
         if (!displayNumber.contains('.')) displayNumber += '.'
+
+        currentState = State.ENTERING
     }
 
     override fun allClear() {
@@ -50,6 +67,8 @@ class ViewCalculatorImpl: IViewCalculator {
     }
 
     override fun deleteLastDigit() {
+        if (currentState == State.ERROR) return
+
         displayNumber = displayNumber.dropLast(1)
         if (displayNumber == "") {
             displayNumber = "0"
@@ -77,6 +96,8 @@ class ViewCalculatorImpl: IViewCalculator {
 
             Operation.NONE -> {}
         }
+
+        if (isError()) currentState = State.ERROR
     }
 
     override fun sumBtnPressed() {
@@ -89,6 +110,7 @@ class ViewCalculatorImpl: IViewCalculator {
 
         currentOperation = Operation.SUM
         currentState = State.WAITING
+
     }
 
     override fun subtractionBtnPressed() {
@@ -133,6 +155,8 @@ class ViewCalculatorImpl: IViewCalculator {
     }
 
     override fun equalBtnPressed() {
+        if (currentState == State.ERROR) return
+
         if (currentState != State.WAITING) {
             performOperation()
         }
@@ -140,6 +164,10 @@ class ViewCalculatorImpl: IViewCalculator {
         displayNumber = resultNumber
 
         currentOperation = Operation.NONE
-        currentState = State.RESULT
+        if (currentState != State.ERROR) currentState = State.RESULT
+    }
+
+    override fun isError(): Boolean {
+        return (resultNumber.toDouble().isInfinite() || resultNumber.toDouble().isNaN())
     }
 }
