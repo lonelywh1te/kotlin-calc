@@ -1,9 +1,9 @@
 package ru.lonelywh1te.kotlin_calc.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.HapticFeedbackConstants
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import ru.lonelywh1te.kotlin_calc.R
@@ -199,6 +199,10 @@ class MainActivity : AppCompatActivity() {
 
                 resetActionButtons(actionButtons)
                 updateDisplayNumber(viewCalculator)
+            }
+
+            btnInfo.setOnClickListener {
+                startActivity(Intent(this@MainActivity, InfoActivity::class.java))
             }
         }
     }
