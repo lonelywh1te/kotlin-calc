@@ -9,10 +9,8 @@ interface IViewCalculator {
     fun deleteLastDigit()
     fun performOperation()
     fun equalBtnPressed()
-    fun sumBtnPressed()
-    fun subtractionBtnPressed()
-    fun divisionBtnPressed()
-    fun multiplicationBtnPressed()
     fun percentBtnPressed()
     fun isError(): Boolean
+    fun prepareOperation()
+    fun operationButtonPressed(id: String)
 }

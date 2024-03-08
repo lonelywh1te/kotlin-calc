@@ -1,6 +1,5 @@
 package ru.lonelywh1te.kotlin_calc.view
 
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import ru.lonelywh1te.kotlin_calc.R

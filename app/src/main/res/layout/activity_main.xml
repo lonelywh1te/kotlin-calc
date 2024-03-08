@@ -172,7 +172,7 @@
                 android:text="6" />
 
             <Button
-                android:id="@+id/btnSubstraction"
+                android:id="@+id/btnSubtraction"
                 style="@style/defaultButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

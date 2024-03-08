@@ -1,10 +1,7 @@
 package ru.lonelywh1te.kotlin_calc.viewCalculator
 
-import android.widget.Toast
 import ru.lonelywh1te.kotlin_calc.calculator.CalculatorImpl
 import ru.lonelywh1te.kotlin_calc.calculator.ICalculator
-import ru.lonelywh1te.kotlin_calc.view.MainActivity
-import java.lang.Error
 
 const val MAX_DIGIT_VALUE = 15
 class ViewCalculatorImpl: IViewCalculator {
@@ -76,77 +73,41 @@ class ViewCalculatorImpl: IViewCalculator {
         }
     }
 
+    override fun prepareOperation() {
+        if (currentState != State.WAITING && currentOperation != Operation.NONE) {
+            performOperation()
+            displayNumber = resultNumber
+        } else {
+            resultNumber = displayNumber
+        }
+    }
+
+    override fun operationButtonPressed(id: String) {
+        prepareOperation()
+
+        currentOperation = when(id) {
+            "btnSum" -> Operation.SUM
+            "btnSubtraction" -> Operation.SUBTRACTION
+            "btnDivision" -> Operation.DIVISION
+            "btnMultiplication" -> Operation.MULTIPLICATION
+            else -> Operation.NONE
+        }
+        currentState = State.WAITING
+    }
+
     override fun performOperation() {
-        when (currentOperation) {
-            Operation.SUM -> {
-                resultNumber = calculator.sum(resultNumber.toDouble(), displayNumber.toDouble()).toString()
-            }
+        val resultNumberDouble = resultNumber.toDouble()
+        val displayNumberDouble = displayNumber.toDouble()
 
-            Operation.SUBTRACTION -> {
-                resultNumber = calculator.subtraction(resultNumber.toDouble(), displayNumber.toDouble()).toString()
-            }
-
-            Operation.MULTIPLICATION -> {
-                resultNumber = calculator.multiplication(resultNumber.toDouble(), displayNumber.toDouble()).toString()
-            }
-
-            Operation.DIVISION -> {
-                resultNumber = calculator.division(resultNumber.toDouble(), displayNumber.toDouble()).toString()
-            }
-
-            Operation.NONE -> {}
+        resultNumber = when (currentOperation) {
+            Operation.SUM -> calculator.sum(resultNumberDouble, displayNumberDouble).toString()
+            Operation.SUBTRACTION -> calculator.subtraction(resultNumberDouble, displayNumberDouble).toString()
+            Operation.MULTIPLICATION -> calculator.multiplication(resultNumberDouble, displayNumberDouble).toString()
+            Operation.DIVISION -> calculator.division(resultNumberDouble, displayNumberDouble).toString()
+            Operation.NONE -> resultNumber
         }
 
         if (isError()) currentState = State.ERROR
-    }
-
-    override fun sumBtnPressed() {
-        if (currentState != State.WAITING && currentOperation != Operation.NONE) {
-            performOperation()
-            displayNumber = resultNumber
-        } else {
-            resultNumber = displayNumber
-        }
-
-        currentOperation = Operation.SUM
-        currentState = State.WAITING
-
-    }
-
-    override fun subtractionBtnPressed() {
-        if (currentState != State.WAITING && currentOperation != Operation.NONE) {
-            performOperation()
-            displayNumber = resultNumber
-        } else {
-            resultNumber = displayNumber
-        }
-
-        currentOperation = Operation.SUBTRACTION
-        currentState = State.WAITING
-    }
-
-    override fun divisionBtnPressed() {
-        if (currentState != State.WAITING && currentOperation != Operation.NONE) {
-            performOperation()
-            displayNumber = resultNumber
-        } else {
-            resultNumber = displayNumber
-        }
-
-        currentOperation = Operation.DIVISION
-        currentState = State.WAITING
-    }
-
-    override fun multiplicationBtnPressed() {
-        if (currentState != State.WAITING && currentOperation != Operation.NONE) {
-            performOperation()
-            displayNumber = resultNumber
-        } else {
-            resultNumber = displayNumber
-        }
-
-        currentOperation = Operation.MULTIPLICATION
-        currentState = State.WAITING
     }
 
     override fun percentBtnPressed() {
