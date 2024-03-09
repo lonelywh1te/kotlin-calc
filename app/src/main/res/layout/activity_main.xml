@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/backgroundColor"
     tools:context=".view.MainActivity">
 
     <TextView
@@ -94,6 +94,7 @@
             <Button
                 android:id="@+id/btn7"
                 style="@style/defaultButtonStyle"
+                android:textColor="@color/textColor"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="7.5dp"
@@ -276,6 +277,7 @@
             <Button
                 android:id="@+id/btnEqual"
                 style="@style/defaultButtonStyle"
+                android:textColor="@color/backgroundColor"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="7.5dp"

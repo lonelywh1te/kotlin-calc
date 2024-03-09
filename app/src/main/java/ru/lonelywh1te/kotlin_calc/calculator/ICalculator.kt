@@ -6,5 +6,5 @@ interface ICalculator {
     fun subtraction(a: Double, b: Double): Double
     fun division(a: Double, b: Double): Double
     fun multiplication(a: Double, b: Double): Double
-    fun percent(number: Double): Double
+    fun percent(number: Double, percent: Double): Double
 }

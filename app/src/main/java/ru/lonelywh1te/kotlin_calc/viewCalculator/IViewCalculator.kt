@@ -4,7 +4,7 @@ interface IViewCalculator {
     fun getDisplayNumber(): String
     fun digitButtonPressed(digit: CharSequence)
     fun addDigit(digit: CharSequence)
-    fun addComma()
+    fun addComma(comma: CharSequence)
     fun allClear()
     fun deleteLastDigit()
     fun performOperation()

@@ -37,7 +37,6 @@ class ViewCalculatorImpl: IViewCalculator {
 
         addDigit(digit)
     }
-
     override fun addDigit(digit: CharSequence) {
         if (displayNumber == "0") displayNumber = ""
 
@@ -48,10 +47,10 @@ class ViewCalculatorImpl: IViewCalculator {
         currentState = State.ENTERING
     }
 
-    override fun addComma() {
+    override fun addComma(comma: CharSequence) {
         if (currentState == State.ERROR) return
 
-        if (!displayNumber.contains('.')) displayNumber += '.'
+        if (!displayNumber.contains(comma)) displayNumber += comma
 
         currentState = State.ENTERING
     }
@@ -104,14 +103,22 @@ class ViewCalculatorImpl: IViewCalculator {
             Operation.SUBTRACTION -> calculator.subtraction(resultNumberDouble, displayNumberDouble).toString()
             Operation.MULTIPLICATION -> calculator.multiplication(resultNumberDouble, displayNumberDouble).toString()
             Operation.DIVISION -> calculator.division(resultNumberDouble, displayNumberDouble).toString()
-            Operation.NONE -> resultNumber
+            Operation.NONE -> displayNumber
         }
 
         if (isError()) currentState = State.ERROR
     }
 
     override fun percentBtnPressed() {
-        displayNumber = calculator.percent(displayNumber.toDouble()).toString()
+        val resultNumberDouble = resultNumber.toDouble()
+        val displayNumberDouble = displayNumber.toDouble()
+
+        displayNumber = if (resultNumber == "0") {
+            calculator.percent(displayNumberDouble, 1.0).toString()
+        } else {
+            calculator.percent(resultNumberDouble, displayNumberDouble).toString()
+        }
+
         currentState = State.ENTERING
     }
 

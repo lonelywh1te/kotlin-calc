@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             btnComma.setOnClickListener {
-                viewCalculator.addComma()
+                viewCalculator.addComma(btnComma.text)
 
                 updateDisplayNumber(viewCalculator)
             }
@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity() {
     private fun setActiveActionButton(button: Button, actionButtons: List<Button>) {
         resetActionButtons(actionButtons)
         button.background.setTint(ContextCompat.getColor(this, R.color.activeColorButton))
-        button.setTextColor(ContextCompat.getColor(this, R.color.white))
+        button.setTextColor(ContextCompat.getColor(this, R.color.backgroundColor))
     }
 
     private fun resetActionButtons(buttons: List<Button>) {

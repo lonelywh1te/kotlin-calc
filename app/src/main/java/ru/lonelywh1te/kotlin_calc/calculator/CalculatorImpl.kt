@@ -7,11 +7,11 @@ class CalculatorImpl: ICalculator {
     }
 
     override fun sum(a: Double, b: Double): Double {
-        return a + b
+        return fixDouble(a + b)
     }
 
     override fun subtraction(a: Double, b: Double): Double {
-        return a - b
+        return fixDouble(a - b)
     }
 
     override fun division(a: Double, b: Double): Double {
@@ -19,10 +19,10 @@ class CalculatorImpl: ICalculator {
     }
 
     override fun multiplication(a: Double, b: Double): Double {
-        return a * b
+        return fixDouble(a * b)
     }
 
-    override fun percent(number: Double): Double {
-        return division(number, 100.0)
+    override fun percent(number: Double, percent: Double): Double {
+        return fixDouble((number / 100) * percent)
     }
 }

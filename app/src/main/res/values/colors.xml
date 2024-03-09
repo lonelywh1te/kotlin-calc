@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#000000</color>
-    <color name="white">#FFFFFF</color>
+    <color name="textColor">#000000</color>
+    <color name="backgroundColor">#FFFFFF</color>
     <color name="buttonPanelColor">#EDEDED</color>
-    <color name="activeColorButton">#FF8400</color>
-    <color name='defaultColorButton'>@color/white</color>
-    <color name="equalColorButton">#FFD93D</color>
+    <color name="activeColorButton">#F39F5A</color>
+    <color name='defaultColorButton'>@color/backgroundColor</color>
+    <color name="equalColorButton">#FFD369</color>
 </resources>
